@@ -8,9 +8,9 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
- @Output() recipeWasSelected = new EventEmitter<Recipe>();
-  
- recipes: Recipe[] = [
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
+
+  recipes: Recipe[] = [
     new Recipe('A Test Recipe', 'This is a test', 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=556,505')
   ];
 
@@ -18,13 +18,10 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onRecipeSelected() {
-    // this.recipeWasSelected.emit(recipe);
-    console.log('recipeselected')
+
+  onRecipeSelected(recipe: Recipe) {
+    this.recipeWasSelected.emit(recipe);
+    console.log('onRecipeSelected')
   }
-  // onRecipeSelected(recipe: Recipe) {
-  //   this.recipeWasSelected.emit(recipe);
-  //   console.log('recipeselected')
-  // }
 
 }
